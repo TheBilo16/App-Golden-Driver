@@ -1,8 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import MainLayout from '../../../components/MainLayout';
 
 const NoAuth = () => {
-  return <View></View>
+  return <MainLayout title='Screen No auth' >
+
+  </MainLayout>
 }
 
 export default NoAuth;

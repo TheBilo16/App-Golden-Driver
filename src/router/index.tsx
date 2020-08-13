@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 
 const RouterApp = () => {
   return <NavigationContainer>
-    <Stack.Navigator>
+    <Stack.Navigator headerMode='none' >
       <Stack.Screen name='Home' component={NoAuth} />
     </Stack.Navigator>
   </NavigationContainer>

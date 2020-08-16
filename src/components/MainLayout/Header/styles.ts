@@ -13,7 +13,7 @@ const HeaderMenu = styled.View`
 `;
 
 const ScreenTitle = styled.Text`
-  font-size: 14px;
+  font-size: 15px;
 `;
 
 const ChatIconContainer = styled.View`

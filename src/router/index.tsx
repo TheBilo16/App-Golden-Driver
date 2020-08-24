@@ -9,6 +9,7 @@ import Travels from '../screens/Travels';
 
 const Stack = createStackNavigator();
 
+
 const RouterApp = () => {
   return <NavigationContainer>
     <Stack.Navigator headerMode='none' >

@@ -14,6 +14,7 @@ interface IProps {
 const Item : FC<IProps> = ({ title , date , state , link }) => {
   const onPress = useCallback(()=> {
     //Change route...
+    console.log(link);
   },[link]);
 
   return <ItemContainer>

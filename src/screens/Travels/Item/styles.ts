@@ -1,7 +1,9 @@
+import { Dimensions } from 'react-native';
 import styled from "styled-components/native";
 import { TTravelState } from "../../../types";
 
-const horizontalSize = '80px';
+const horizontalSize = 80;
+const { width } = Dimensions.get('window');
 
 const ItemContainer = styled.View`
   flex-direction: row;
@@ -17,7 +19,7 @@ const ItemCentered = styled.View`
 `;
 
 const ItemInformation = styled.View`
-  width: calc(100% - calc(${horizontalSize} * 2));
+  width: ${(width - horizontalSize) * 2};
 `;
 
 const ItemTitle = styled.Text`

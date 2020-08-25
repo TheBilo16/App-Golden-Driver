@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { UserImage } from './styles';
 
 interface IProps {
-  width : string,
-  height : string,
+  width : number,
+  height : number,
   uri : string
 }
 

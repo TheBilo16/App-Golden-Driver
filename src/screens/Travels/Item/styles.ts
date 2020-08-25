@@ -19,7 +19,7 @@ const ItemCentered = styled.View`
 `;
 
 const ItemInformation = styled.View`
-  width: ${(width - horizontalSize) * 2}px;
+  width: ${width - (horizontalSize * 2)}px;
 `;
 
 const ItemTitle = styled.Text`

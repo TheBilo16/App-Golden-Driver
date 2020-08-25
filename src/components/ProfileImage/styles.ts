@@ -1,16 +1,14 @@
 import styled from 'styled-components/native';
-import { Image } from 'react-native';
 
 interface IPropsImage {
-  width : string,
-  height : string
+  width : number,
+  height : number
 }
 
 const UserImage = styled.Image<IPropsImage>`
-  width: ${p => p.width};
-  height : ${p => p.height};
-  border-radius: 50%;
-  object-fit: contain;
+  width: ${({ width }) => width + 'px'};
+  height : ${({ height }) => height + 'px'};
+  border-radius: ${({ width }) => (width / 2) + 'px'};
 `;
 
 export {

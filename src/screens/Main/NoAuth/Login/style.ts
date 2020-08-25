@@ -1,32 +1,32 @@
 import styled  , { css }  from 'styled-components/native';
 
 const Content = styled.ImageBackground`
-    flex:1
+    flex:1;
 `
 const Input = styled.TextInput`
-    width:70%,
-    height:100%,
-    backgroundColor:white,
-    padding:10
-`
+    width:70%;
+    height:100%;
+    background-color:white;
+    padding:10px;
+`;
 
 const InputGroup = styled.View`
-    flexDirection:row,
-    flexWrap : nowrap,
-    width:80%,
-    height:40,
-    marginTop:10
+    flex-direction:row;
+    flex-wrap : nowrap;
+    width:80%;
+    height:40px;
+    margin-top:10px;
 `
 const ImageInput = styled.Image`
-    width:30%,
-    height:100%
+    width:30%;
+    height:100%;
 `
 
 const FormGroup = styled.View`
-    top:50%,
-    width:100%,
-    height:50%,
-    alignItems:center
+    top:50%;
+    width:100%;
+    height:50%;
+    align-items:center;
 `
 
 

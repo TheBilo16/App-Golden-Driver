@@ -13,13 +13,13 @@ const ItemContainer = styled.View`
 `;
 
 const ItemCentered = styled.View`
-  width: ${horizontalSize};
+  width: ${horizontalSize}px;
   align-items: center;
   justify-content: center;
 `;
 
 const ItemInformation = styled.View`
-  width: ${(width - horizontalSize) * 2};
+  width: ${(width - horizontalSize) * 2}px;
 `;
 
 const ItemTitle = styled.Text`
@@ -42,7 +42,7 @@ interface IIndicator {
 const Indicator = styled.View<IIndicator>`
   width: 16px;
   height: 16px;
-  border-radius: 50%;
+  border-radius: 8px;
   border: 2px solid ${p => p.state === 'completed' ? '#B0F5D4' : '#D9D9D9'};
   background-color: ${p => p.state === 'completed' ? '#6BCF9F' : '#fff'};
 `;

@@ -1,9 +1,12 @@
-import { IStore } from "../interfaces";
+import { MapContext } from "../namespaces";
 
-const store : IStore = {
-  MapScreenState : 'bottom-btn',
-  BusStopInformation : {
-    
+const store : MapContext.IStore = {
+  mapScreen : {
+    state : 'view-all',
+    modal : {
+      busStopDetail : {},
+      isActive : true
+    }
   }
 }
 

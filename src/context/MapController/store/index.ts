@@ -1,11 +1,17 @@
 import { MapContext } from "../namespaces";
 
 const store : MapContext.IStore = {
+  travelState : 'pendient',
   mapScreen : {
-    state : 'view-all',
+    state : 'bottom-btn',
     modal : {
-      busStopDetail : {},
-      isActive : true
+      busStopDetail : {
+        name : '',
+        ubication : '',
+        date : '',
+        detailState : 'in-process',
+      },
+      isActive : false
     }
   }
 }

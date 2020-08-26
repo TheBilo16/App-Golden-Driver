@@ -5,11 +5,6 @@ const MapMainContainer = styled.View`
   position: relative;
 `;
 
-const MapTravel = styled.View`
-  flex: 1;
-`;
-
 export {
-  MapMainContainer,
-  MapTravel
+  MapMainContainer
 }

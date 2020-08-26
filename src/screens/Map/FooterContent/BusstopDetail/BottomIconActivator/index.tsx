@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Entypo } from '@expo/vector-icons'
 import { BottomContent , CustomText , IconContainer } from './styles';
 import { TouchableOpacity } from 'react-native';
@@ -8,7 +8,7 @@ interface IProps {
   onPress() : void
 }
 
-const BottomIconActivator : FC<IProps> = ({ children , isMoreInformation , onPress }) => {
+const BottomIconActivator : FC<IProps> = ({ isMoreInformation , onPress }) => {
   return <BottomContent as={TouchableOpacity} isMoreInformation={isMoreInformation} onPress={onPress} >
     <IconContainer>
       <Entypo name={isMoreInformation ? 'chevron-down' : 'chevron-up'} size={20} color="#F8B83E" />
@@ -19,4 +19,4 @@ const BottomIconActivator : FC<IProps> = ({ children , isMoreInformation , onPre
   </BottomContent>
 } 
 
-export default BottomIconActivator;
+export default memo(BottomIconActivator);

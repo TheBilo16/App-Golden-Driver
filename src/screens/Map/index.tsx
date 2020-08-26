@@ -1,21 +1,15 @@
 import React from 'react';
-import MapView from 'react-native-maps';
-import { MapMainContainer , MapTravel } from './styles';
-import FooterContent from './FooterContent';
+import { MapMainContainer } from './styles';
 import { MapControllerProvider } from '../../context/MapController';
+
+//Components
+import FooterContent from './FooterContent';
+import MainContent from './MainContent';
 
 const Map = () => {
   return <MapMainContainer>
     <MapControllerProvider>
-      <MapTravel
-        as={MapView}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      />
+      <MainContent />
       <FooterContent />      
     </MapControllerProvider>
   </MapMainContainer>

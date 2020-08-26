@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { MapControllerContext } from '../../../context/MapController';
 import { MainFooterContainer } from './styles';
 import BusstopDetail from './BusstopDetail';
+import MapButtonArea from './MapButtonArea';
 
 const FooterContent = () => {
   const { state } = useContext(MapControllerContext);
@@ -10,7 +11,7 @@ const FooterContent = () => {
 
   switch(state?.mapScreen.state){
     case 'bottom-btn':
-      NowScreen = <></>;
+      NowScreen = <MapButtonArea />;
       break;
     case 'view-all':
       NowScreen = <BusstopDetail />;

@@ -1,4 +1,5 @@
-import styled from "styled-components/native";
+import styled , { css } from "styled-components/native";
+import { TBusStopState } from "../../../../../types";
 
 const TopTitleContainer = styled.View`
   width: 100%;
@@ -13,15 +14,38 @@ const TitleBusStop = styled.Text`
   color: rgba(0,0,0,.64);
 `;
 
-const WarningMessage = styled.Text`
+
+//Mensaje de estado del paradero
+interface IPropsWarningMessage {
+  busStopState : TBusStopState
+}
+
+const WarningMessage = styled.Text<IPropsWarningMessage>`
   width: 85px;
   padding: 1px 0;
-  background-color: #6BCF9F;
   color: #fff;
   border-radius: 25px;
   font-size: 9px;
   text-align: center;
   margin-top: 8px;
+
+  ${({ busStopState }) => {
+    let styles : string = '';
+
+    switch(busStopState){
+      case 'completed':
+        styles = 'background-color: #6BCF9F';
+        break;
+      case 'in-process':
+        styles = 'background-color: #2A5AD7';
+        break;
+      case 'delay':
+        styles = 'background-color: #FE7557';
+        break;
+    }
+
+    return css`${styles}`;
+  }}
 `;
 
 export {

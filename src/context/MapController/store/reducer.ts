@@ -3,11 +3,17 @@ import { MapContext } from "../namespaces"
 const TYPES = {
   CHANGE_MAP_STATE_TYPE : 'change-map-state-type',
   CHANGE_BUSSTOP_INFORMATION : 'change-busstop-information',
-  CHANGE_BUSSTOP_MODAL_CLOSE : 'change-busstop-modal-close'
+  CHANGE_BUSSTOP_MODAL_CLOSE : 'change-busstop-modal-close',
+  CHANGE_TRAVEL_STATE : 'change-travel-state',
 }
 
 const reducer = (state : MapContext.IStore, action : MapContext.IReducer) : MapContext.IStore => {
   switch(action.type){
+    case TYPES.CHANGE_TRAVEL_STATE:
+      return {
+        ...state,
+        travelState : action.payload
+      }
     case TYPES.CHANGE_MAP_STATE_TYPE:
       return {
         ...state,

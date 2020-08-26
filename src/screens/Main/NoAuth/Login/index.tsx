@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
-import { Content,Input,InputGroup,FormGroup,ImageInput } from './style'
+import { Content,Input,InputGroup,FormGroup,ImageInput,Logo , LogoBox} from './style'
+import { FontAwesome } from '@expo/vector-icons';
 
 //Source
-const imageBack = require('./source/imageBackLogin.svg')
+const logo = require('./source/logo.svg');
+const background = require('./source/fondo.png')
 
 //UIComponents
 import ButtonU from '../../../../UIComponents/Button';
@@ -10,29 +12,37 @@ import ButtonU from '../../../../UIComponents/Button';
 
 const Login  = ( { } ) => {
 
-    const image : Object = { uri : "https://www.digital55.com/wp-content/uploads/2019/07/%C2%BFQue%CC%81-cualidades-debe-tener-un-desarrollador-especialista-en-React.png" } 
-
 
     function indentificar () {
         console.log("Cliked button login")
     }
 
-
     return (
-        <Content source={image}>
+        <Content source={background} resizeMode="center">
+            <LogoBox>
+                <Logo source={logo}/>
+            </LogoBox>
+                
+            
             <FormGroup>
                 <InputGroup>
-                    <ImageInput source={image} />
+                    <ImageInput width="50px">
+                       <FontAwesome name="user" size={20} color="#F8B83E" /> 
+                    </ImageInput>
                     <Input placeholder="Usuario" />
                 </InputGroup>
                 <InputGroup>
-                    <ImageInput source={image}/>
-                    <Input placeholder="Password" />
+                    <ImageInput width = "50px">
+                       <FontAwesome name="lock" size={20} color="#F8B83E" /> 
+                    </ImageInput>
+                    <Input placeholder="Password"/>
                 </InputGroup>
                 <InputGroup>
                     <ButtonU 
+                        width="100%"
                         onPress={indentificar}
                         text = "LogIn"
+                        color="#2A5AD7"
                     />
                 </InputGroup>
                 

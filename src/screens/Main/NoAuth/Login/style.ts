@@ -1,41 +1,52 @@
 import styled  , { css }  from 'styled-components/native';
 
+
+
 const Content = styled.ImageBackground`
-    flex:1;
+    height:100vh;
+    align-items:center;
+    flex-flow:column nowrap;
+    box-sizing:border-box;
 `
+
 const Input = styled.TextInput`
-    width:70%;
+    width:100%;
     height:100%;
     background-color:white;
     padding:10px;
-`;
+`
+
+const ImageInput = styled.View`
+    width:10%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+`
 
 const InputGroup = styled.View`
-    flex-direction:row;
-    flex-wrap : nowrap;
+    flex-flow:row nowrap;
     width:80%;
-    height:40px;
+    height:40;
     margin-top:10px;
 `
-const ImageInput = styled.Image`
-    width:30%;
-    height:100%;
-`
+
 
 const FormGroup = styled.View`
-    top:50%;
     width:100%;
     height:50%;
     align-items:center;
 `
 
+const LogoBox = styled.View`
+    width:100%;
+    height:40%;
+    justify-content:center;
+    align-items:center;
+`
 
-const formGroup = {
-    top:"50%",
-    width:"100%",
-    height:"50%",
-    alignItems:"center"
-}
+const Logo = styled.Image`
+    width:80%;
+    height:100px;
+`
 
-
-export { Content,Input,InputGroup,FormGroup,ImageInput };
+export { Content,Input,InputGroup,FormGroup,ImageInput,Logo,LogoBox };

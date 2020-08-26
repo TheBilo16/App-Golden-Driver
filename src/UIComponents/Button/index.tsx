@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { View , Button , StyleSheet } from 'react-native';
-import {ContentButton} from './style'
+import { ContentButton } from './style'
 
 interface buttonRequired {
     width? : number | string,

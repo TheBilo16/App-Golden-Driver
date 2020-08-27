@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Content,Input,InputGroup,FormGroup,ImageInput,Logo , LogoBox} from './style'
+
 import { FontAwesome } from '@expo/vector-icons';
 
 //Source
@@ -18,24 +19,23 @@ const Login  = ( { } ) => {
     }
 
     return (
-        <Content source={background} resizeMode="center">
+        <Content source={background} >
             <LogoBox>
                 <Logo source={logo}/>
             </LogoBox>
                 
-            
             <FormGroup>
                 <InputGroup>
+                    <Input placeholder="Usuario" />
                     <ImageInput width="50px">
                        <FontAwesome name="user" size={20} color="#F8B83E" /> 
                     </ImageInput>
-                    <Input placeholder="Usuario" />
                 </InputGroup>
                 <InputGroup>
+                    <Input placeholder="Password"/>
                     <ImageInput width = "50px">
                        <FontAwesome name="lock" size={20} color="#F8B83E" /> 
                     </ImageInput>
-                    <Input placeholder="Password"/>
                 </InputGroup>
                 <InputGroup>
                     <ButtonU 

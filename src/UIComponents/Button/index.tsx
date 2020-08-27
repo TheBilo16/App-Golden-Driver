@@ -12,20 +12,14 @@ interface buttonRequired {
 
 const ButtonU : FC<buttonRequired> = ( {width,text,onPress,color} ) => {
 
-    const styles = StyleSheet.create({
-        buttonStyle : {
-            width ,
-        }
-    })
-
     return(
-        <View style={styles.buttonStyle} >
-            <Button
+        <ContentButton width={width}>
+           <ButtonU
                 title = {text}
                 onPress = {onPress}
                 color = {color}
-            /> 
-        </View>
+            />  
+        </ContentButton>
     )
 }
 

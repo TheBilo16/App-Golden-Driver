@@ -1,47 +1,39 @@
 import styled  , { css }  from 'styled-components/native';
 
 
-
 const Content = styled.ImageBackground`
-    height:100vh;
-    align-items:center;
-    flex-flow:column nowrap;
-    box-sizing:border-box;
+    flex:1;
+`
+
+// Formulario
+
+const FormGroup = styled.View`
+    width:80%;
+    flex:1;
 `
 
 const Input = styled.TextInput`
-    width:100%;
+    backgroundColor:white;
     height:100%;
-    background-color:white;
-    padding:10px;
+    padding:5px;
+    flex:9;
 `
 
 const ImageInput = styled.View`
-    width:10%;
     height:100%;
-    justify-content:center;
-    align-items:center;
+    flex:1;
 `
 
 const InputGroup = styled.View`
-    flex-flow:row nowrap;
-    width:80%;
-    height:40;
-    margin-top:10px;
+    flex:1;
+    flexDirection : row;
 `
 
-
-const FormGroup = styled.View`
-    width:100%;
-    height:50%;
-    align-items:center;
-`
+//Logo del Login
 
 const LogoBox = styled.View`
     width:100%;
-    height:40%;
-    justify-content:center;
-    align-items:center;
+    flex:1;
 `
 
 const Logo = styled.Image`

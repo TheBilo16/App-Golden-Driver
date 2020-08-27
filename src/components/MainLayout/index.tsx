@@ -11,9 +11,7 @@ const MainLayout : FC<IProps> = ({ children , title }) : JSX.Element => {
   return <MainContainer>
     <Header title={title} />
     <Content>
-      <ScrollView>
-        { children }
-      </ScrollView>
+      { children }
     </Content>
   </MainContainer>
 }

@@ -6,7 +6,6 @@ const Content = styled.ImageBackground`
     height:100vh;
     align-items:center;
     flex-flow:column nowrap;
-    box-sizing:border-box;
 `
 
 const Input = styled.TextInput`

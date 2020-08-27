@@ -1,23 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
-//Screens
-import NoAuth from '../screens/Main/NoAuth';
-import Profile from '../screens/Profile';
-import Travels from '../screens/Travels';
-
-const Stack = createStackNavigator();
-
+import RoutesAuth from './Auth';
+import { RouteControllerContext } from '../context/RouteController';
+import RoutesNotAuth from './NotAuth';
 
 const RouterApp = () => {
+  const { routeState } = useContext(RouteControllerContext);
+
   return <NavigationContainer>
-    <Stack.Navigator headerMode='none' >
-      <Stack.Screen name='Home' component={NoAuth} />
-      <Stack.Screen name='Travels' component={Travels} />
-      <Stack.Screen name='Profile' component={Profile} />
-      
-    </Stack.Navigator>
+    { routeState === 'auth' ? <RoutesAuth /> : <RoutesNotAuth /> }
   </NavigationContainer>
 }
 

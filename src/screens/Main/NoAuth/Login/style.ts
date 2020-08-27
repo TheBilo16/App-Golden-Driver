@@ -2,6 +2,7 @@ import styled  , { css }  from 'styled-components/native';
 
 
 const Content = styled.ImageBackground`
+<<<<<<< HEAD
     flex:1;
 `
 
@@ -10,6 +11,11 @@ const Content = styled.ImageBackground`
 const FormGroup = styled.View`
     width:80%;
     flex:1;
+=======
+    height:100vh;
+    align-items:center;
+    flex-flow:column nowrap;
+>>>>>>> d47e3caadf23399a28194a49b330c14611273a0d
 `
 
 const Input = styled.TextInput`

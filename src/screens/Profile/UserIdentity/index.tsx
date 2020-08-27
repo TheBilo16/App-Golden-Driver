@@ -12,7 +12,7 @@ interface IProps {
 const UserIdentity : FC<IProps> = ({ uri , username }) => {
   return <MainContent>
     <ImageContainerBorder>
-      <ProfileImage uri={uri} width='190px' height='190px' />
+      <ProfileImage uri={uri} width={190} height={190} />
     </ImageContainerBorder>
     <UsernameContainer>
       <Username>{username}</Username>

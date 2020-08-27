@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { MainContainer, Content } from './styles';
 import Header from './Header';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface IProps {
   title : string

@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import MainLayout from '../../components/MainLayout';
 import UserIdentity from './UserIdentity';
 import UserData from './UserData';
+import { ScrollView } from 'react-native';
 
 //Config Default 
 const identity = {
@@ -17,8 +18,10 @@ const data = {
 
 const Profile = () => {
   return <MainLayout title='Perfil de Usuario' >
-    <UserIdentity {...identity} />
-    <UserData {...data} />
+    <ScrollView>
+      <UserIdentity {...identity} />
+      <UserData {...data} />      
+    </ScrollView>
   </MainLayout>
 }
 

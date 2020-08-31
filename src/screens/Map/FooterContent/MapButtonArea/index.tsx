@@ -3,9 +3,7 @@ import { MapButtonAreaContainer } from './styles';
 import { MapControllerContext } from '../../../../context/MapController';
 import { TYPES } from '../../../../context/MapController/store/reducer';
 import { TStateScreenMap, TTravelState } from '../../../../types';
-
-//Provicional
-import { TouchableOpacity, Text } from 'react-native';
+import CustomButton from '../../../../components/CustomButton';
 
 const MapButtonArea : FC = () => {
   const { state , dispatch } = useContext(MapControllerContext);
@@ -31,9 +29,10 @@ const MapButtonArea : FC = () => {
   }, [state?.travelState]);
 
   return <MapButtonAreaContainer>
-    <TouchableOpacity onPress={ChangeStateToMap}>
-      <Text>{ travelState === 'pendient' ? 'Comenzar Viaje' : 'Ver Viaje' }</Text>
-    </TouchableOpacity>
+    <CustomButton 
+      text={ travelState === 'pendient' ? 'Comenzar Viaje' : 'Ver Viaje' }
+      onPress={ChangeStateToMap} 
+    />
   </MapButtonAreaContainer>
 }
 

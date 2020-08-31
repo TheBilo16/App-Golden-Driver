@@ -8,7 +8,7 @@ import MainContent from './MainContent';
 import MainLayout from '../../components/MainLayout';
 
 const Map = () => {
-  return <MainLayout title='Mapa' >
+  return <MainLayout title='Mapa de Rutas' backToScreen={true} >
     <MapMainContainer>
       <MapControllerProvider>
         <MainContent />

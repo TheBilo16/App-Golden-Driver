@@ -1,15 +1,19 @@
 import React, { FC } from 'react';
 import { MainContainer, Content } from './styles';
 import Header from './Header';
-import { ScrollView } from 'react-native-gesture-handler';
 
 interface IProps {
-  title : string
+  title : string,
+  backToScreen? : boolean
 }
 
-const MainLayout : FC<IProps> = ({ children , title }) : JSX.Element => {
+const MainLayout : FC<IProps> = ({ children , title , backToScreen }) : JSX.Element => {
   return <MainContainer>
-    <Header title={title} />
+    { 
+      !backToScreen ? 
+          <Header.DefaultScreen title={title} /> :
+          <Header.BackToScreen title={title} />
+    }
     <Content>
       { children }
     </Content>

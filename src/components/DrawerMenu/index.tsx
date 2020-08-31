@@ -7,7 +7,9 @@ import DrawerItem from './DrawerItem';
 import DrawerHeader from './DrawerHeader';
 
 const DrawerMenu : FC<DrawerContentComponentProps> = (props) => {
-  const NavigateToScreen = (link : string) : void => props.navigation.navigate(link);
+  const { navigation } = props;
+
+  const NavigateToScreen = (link : string) : void => navigation.navigate(link);
   const CloseSession = () => console.log('Close Sesion');
   
   return <DrawerMenuContainer>
@@ -24,7 +26,7 @@ const DrawerMenu : FC<DrawerContentComponentProps> = (props) => {
           <DrawerItem 
             icon={<AntDesign name="qrcode" size={16} color="rgba(0,0,0,.54)" />} 
             title='Lector QR' 
-            onPress={() => NavigateToScreen('Map')}
+            onPress={() => NavigateToScreen('LectorQR')}
           />
           <DrawerItem 
             icon={<Ionicons name="md-person" size={16} color="rgba(0,0,0,.54)" />} 
@@ -34,7 +36,7 @@ const DrawerMenu : FC<DrawerContentComponentProps> = (props) => {
           <DrawerItem 
             icon={<FontAwesome name="bus" size={16} color="rgba(0,0,0,.54)" />} 
             title='Sobre Nosotros' 
-            onPress={() => NavigateToScreen('Travels')}
+            onPress={() => NavigateToScreen('Nosotros')}
           />     
         </DrawerItemContainerCentral>
       </DrawerItemsContainer>

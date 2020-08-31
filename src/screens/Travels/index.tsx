@@ -6,7 +6,7 @@ import Item from './Item';
 const config = new Array(6).fill({
   title : 'San Juan de Lurigancho',
   date : 'Asignado el 16 de enero de 2020',
-  link : '/'
+  link : 'Map'
 });
 
 const Travels = () => {

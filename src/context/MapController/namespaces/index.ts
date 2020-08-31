@@ -1,5 +1,6 @@
 import { TStateScreenMap, TTravelState, TBusStopState } from "../../../types";
 import { Dispatch } from "react";
+import { LatLng } from "react-native-maps";
 
 namespace MapContext {
   export interface IStore {
@@ -18,6 +19,12 @@ namespace MapContext {
     ubication: string;
     detailState : TBusStopState;
     date : string;
+  }
+
+  export interface IMarker {
+    title : string,
+    coordinate : LatLng,
+    information : IBusStopDetail,
   }
   
   export interface IReducer {

@@ -2,20 +2,28 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 //Screens
-import Travels from '../../screens/Travels';
 import Profile from '../../screens/Profile';
-import Map from '../../screens/Map';
 import DrawerMenu from '../../components/DrawerMenu';
+import StackMap from './StackMap';
+import Nosotros from '../../screens/Nosotros';
+import LectorQR from '../../screens/LectorQR';
 
 const Drawer = createDrawerNavigator();
 
 const RoutesAuth = () => {
+  let isEnabledDrawerGesture = true; //Global State ...
+
   return <Drawer.Navigator
     drawerContent={ props => <DrawerMenu {...props} />}
+    openByDefault={false}
+    screenOptions={{
+      gestureEnabled : isEnabledDrawerGesture
+    }}
   >
-    <Drawer.Screen name='Travels' component={Travels} />
-    <Drawer.Screen name='Map' component={Map} />
+    <Drawer.Screen name='Travels' component={StackMap} />
+    <Drawer.Screen name='LectorQR' component={LectorQR} />
     <Drawer.Screen name='Profile' component={Profile} />
+    <Drawer.Screen name='Nosotros' component={Nosotros} />
   </Drawer.Navigator>
 }
 

@@ -3,6 +3,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { ItemContainer, ItemInformation, Indicator, ItemCentered, ItemTitle, ItemSubtitle } from './styles';
 import { TouchableOpacity } from 'react-native';
 import { TTravelState } from '../../../types';
+import { useNavigation } from '@react-navigation/native';
 
 interface IProps {
   title : string,
@@ -12,10 +13,8 @@ interface IProps {
 }
 
 const Item : FC<IProps> = ({ title , date , state , link }) => {
-  const onPress = useCallback(()=> {
-    //Change route...
-    console.log(link);
-  },[link]);
+  const navigation = useNavigation();
+  const onPress = useCallback(()=> navigation.navigate(link),[link]);
 
   return <ItemContainer>
     <ItemCentered>

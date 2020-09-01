@@ -1,11 +1,13 @@
-import React, { useCallback, useContext } from 'react';
-import MapView , { Marker, LatLng } from 'react-native-maps';
+import React from 'react';
+import MapView , { Marker } from 'react-native-maps';
 import { MapTravel } from './styles'
-import { MapControllerContext } from '../../../context/MapController';
-import { TYPES } from '../../../context/MapController/store/reducer';
-import { MapContext } from '../../../context/MapController/namespaces';
 
-let Markers : MapContext.IMarker[] = [
+//Redux
+import { useSelector , shallowEqual , useDispatch } from 'react-redux';
+import { changeBusStopInformation } from '../../../redux/actions/ActionsMap';
+import { MapController } from '../../../redux/reducers/Map/metadata';
+
+let Markers : MapController.IMarker[] = [
   {
     title : 'Marker de Prueba',
     coordinate : {
@@ -35,13 +37,13 @@ let Markers : MapContext.IMarker[] = [
 ]
 
 const MainContent = () => {
-  const { state , dispatch } = useContext(MapControllerContext);
+  const { mapScreen : { state } } = useSelector(({ map }) => map, shallowEqual);
+  const dispatch = useDispatch();
 
-  const ActivateModalBusStopDetail = useCallback((payload : MapContext.IBusStopDetail) => {
-    if(state?.mapScreen.state === 'bottom-btn') return;
-
-    dispatch!({ type : TYPES.CHANGE_BUSSTOP_INFORMATION, payload })
-  },[state?.mapScreen.state]);
+  const ActivateModalBusStopDetail = (busStop : MapController.IBusStopDetail) => {
+    if(state === 'bottom-btn') return;
+    dispatch(changeBusStopInformation(busStop));
+  };
 
   return (
     <MapTravel

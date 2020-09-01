@@ -1,22 +1,29 @@
-import React, { useState, useContext, useCallback } from 'react';
+import React, { useState } from 'react';
 import { BusstopModalContainer } from './styles';
+
+//Components
 import DetailList from './DetailList';
 import BottomIconActivator from './BottomIconActivator';
 import TopTitleBusStop from './TopTitleBusStop';
-import { MapControllerContext } from '../../../../context/MapController';
+
+//Redux
+import { useSelector , shallowEqual } from 'react-redux';
 
 const BusstopDetail = () => {
-  const { state } = useContext(MapControllerContext);
   const [ moreInformation , setMoreInformation ] = useState<boolean>(false);
-  const { name , detailState } = state?.mapScreen.modal.busStopDetail!;
+  
+  //Redux
+  const { mapScreen } = useSelector(({ map }) => map, shallowEqual);
+  const { 
+    busStopDetail : { name, detailState },
+    isActive
+  } = mapScreen.modal;
 
   //Ver mas informacion
-  const ToggleMoreInformation = useCallback(() => 
-    setMoreInformation(() => !moreInformation)
-  ,[moreInformation]);
+  const ToggleMoreInformation = () => setMoreInformation(!moreInformation);
 
   //Si el modal no esta activo
-  if(!state?.mapScreen.modal.isActive) return <></>;
+  if(!isActive) return <></>;
 
   return <BusstopModalContainer>
     <TopTitleBusStop title={name} busStopState={detailState} />

@@ -4,12 +4,14 @@ import { MainFooterContainer } from './styles';
 import BusstopDetail from './BusstopDetail';
 import MapButtonArea from './MapButtonArea';
 
+import { useSelector , shallowEqual } from 'react-redux';
+
 const FooterContent = () => {
-  const { state } = useContext(MapControllerContext);
+  const { mapScreen : { state } } = useSelector(({ map }) => map, shallowEqual);
 
   let NowScreen : JSX.Element = <></>;
 
-  switch(state?.mapScreen.state){
+  switch(state){
     case 'bottom-btn':
       NowScreen = <MapButtonArea />;
       break;

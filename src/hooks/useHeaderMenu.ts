@@ -6,7 +6,7 @@ const useHeaderMenu = () => {
   const openDrawerMenu = () : void => navigation.dispatch(DrawerActions.openDrawer());
   
   const openChatMenu = () => {
-    //Actions...
+    navigation.navigate('Chat');
   }
 
   return {

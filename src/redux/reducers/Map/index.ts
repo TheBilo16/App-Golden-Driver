@@ -1,5 +1,5 @@
 import { MapController } from "./metadata";
-import TYPES from "../../actions/ActionsMap";
+import TYPES from "../../actions/MapActions";
 
 const initialState : MapController.IStore = {
   travelState : 'pendient',
@@ -17,7 +17,7 @@ const initialState : MapController.IStore = {
   }
 }
 
-const reducer = (state = initialState , action) => {
+const reducer = (state = initialState , action) : MapController.IStore => {
   switch(action.type){
     case TYPES.CHANGE_TRAVEL_STATE:
       return {

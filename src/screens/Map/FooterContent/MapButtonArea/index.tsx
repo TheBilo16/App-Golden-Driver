@@ -5,7 +5,7 @@ import CustomButton from '../../../../components/CustomButton';
 
 //Redux
 import { useDispatch , useSelector , shallowEqual } from 'react-redux';
-import { changeTravelState, changeMapState } from '../../../../redux/actions/ActionsMap';
+import { changeTravelState, changeMapState } from '../../../../redux/actions/MapActions';
 
 const MapButtonArea : FC = () => {
   const dispatch = useDispatch();

@@ -8,14 +8,18 @@ import MainLayout from '../../components/MainLayout';
 
 //Redux
 import { useDispatch } from 'react-redux';
-import { setInitialState } from '../../redux/actions/ActionsMap';
+import { setInitialState } from '../../redux/actions/MapActions';
+import { activateDrawerGesture } from '../../redux/actions/ConfigurationActions';
 
 const Map = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(activateDrawerGesture(false));
+
     return () => {
       dispatch(setInitialState());
+      dispatch(activateDrawerGesture(true));
     }
   },[]);
 

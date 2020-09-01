@@ -4,7 +4,7 @@ import { MapTravel } from './styles'
 
 //Redux
 import { useSelector , shallowEqual , useDispatch } from 'react-redux';
-import { changeBusStopInformation } from '../../../redux/actions/ActionsMap';
+import { changeBusStopInformation } from '../../../redux/actions/MapActions';
 import { MapController } from '../../../redux/reducers/Map/metadata';
 
 let Markers : MapController.IMarker[] = [

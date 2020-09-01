@@ -11,8 +11,11 @@ import Chat from '../../screens/Chat';
 
 const Drawer = createDrawerNavigator();
 
+//Redux
+import { useSelector , shallowEqual } from 'react-redux';
+
 const RoutesAuth = () => {
-  let isEnabledDrawerGesture = true; //Global State ...
+  const { isEnabledDrawerGesture } = useSelector(({ configuration }) => configuration, shallowEqual);
 
   return <Drawer.Navigator
     drawerContent={ props => <DrawerMenu {...props} />}

@@ -9,7 +9,7 @@ import DrawerMenu from '../../components/DrawerMenu';
 
 const Drawer = createDrawerNavigator();
 
-const RoutesAuth = () => {
+const RoutesAuth = () => {  
   return <Drawer.Navigator
     drawerContent={ props => <DrawerMenu {...props} />}
   >

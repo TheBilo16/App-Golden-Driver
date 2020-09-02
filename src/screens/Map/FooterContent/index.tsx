@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { MapControllerContext } from '../../../context/MapController';
+import React from 'react';
 import { MainFooterContainer } from './styles';
 import BusstopDetail from './BusstopDetail';
 import MapButtonArea from './MapButtonArea';

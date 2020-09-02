@@ -1,6 +1,7 @@
 namespace ConfigurationController {
   export interface IStore {
-    isEnabledDrawerGesture : boolean
+    isEnabledDrawerGesture : boolean,
+    isNotificationEnabled : boolean
   }
 }
 

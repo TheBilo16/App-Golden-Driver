@@ -1,9 +1,9 @@
 import React from 'react';
 import MainLayout from '../../components/MainLayout';
 
-const LectorQR = () => {
+const QRLector = () => {
   return <MainLayout title='Lector QR' >
   </MainLayout>
 }
 
-export default LectorQR;
+export default QRLector;

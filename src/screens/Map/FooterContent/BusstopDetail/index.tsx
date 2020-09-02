@@ -19,11 +19,12 @@ const BusstopDetail = () => {
     isActive
   } = mapScreen.modal;
 
-  //Ver mas informacion
-  const ToggleMoreInformation = () => setMoreInformation(!moreInformation);
-
   //Si el modal no esta activo
   if(!isActive) return <></>;
+
+  //Ver mas informacion
+  const ToggleMoreInformation = () => setMoreInformation(() => !moreInformation);
+  
 
   return <BusstopModalContainer>
     <TopTitleBusStop title={name} busStopState={detailState} />

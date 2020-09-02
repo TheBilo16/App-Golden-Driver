@@ -5,12 +5,11 @@ import { DrawerContentScrollView, DrawerContentComponentProps } from '@react-nav
 import { DrawerMenuContainer, DrawerItemsContainer , DrawerItemContainerCentral, DrawerItemBars } from './styles';
 import DrawerItem from './DrawerItem';
 import DrawerHeader from './DrawerHeader';
+import useDrawerActions from '../../hooks/useDrawerActions';
 
 const DrawerMenu : FC<DrawerContentComponentProps> = (props) => {
   const { navigation } = props;
-
-  const NavigateToScreen = (link : string) : void => navigation.navigate(link);
-  const CloseSession = () => console.log('Close Sesion');
+  const { CloseSession , NavigateToScreen } = useDrawerActions(navigation);
   
   return <DrawerMenuContainer>
     <DrawerContentScrollView {...props}>
@@ -26,7 +25,7 @@ const DrawerMenu : FC<DrawerContentComponentProps> = (props) => {
           <DrawerItem 
             icon={<AntDesign name="qrcode" size={16} color="rgba(0,0,0,.54)" />} 
             title='Lector QR' 
-            onPress={() => NavigateToScreen('LectorQR')}
+            onPress={() => NavigateToScreen('QRLector')}
           />
           <DrawerItem 
             icon={<Ionicons name="md-person" size={16} color="rgba(0,0,0,.54)" />} 
@@ -36,7 +35,7 @@ const DrawerMenu : FC<DrawerContentComponentProps> = (props) => {
           <DrawerItem 
             icon={<FontAwesome name="bus" size={16} color="rgba(0,0,0,.54)" />} 
             title='Sobre Nosotros' 
-            onPress={() => NavigateToScreen('Nosotros')}
+            onPress={() => NavigateToScreen('About-Us')}
           />     
         </DrawerItemContainerCentral>
       </DrawerItemsContainer>

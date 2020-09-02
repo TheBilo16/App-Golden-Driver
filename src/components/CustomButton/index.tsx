@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC} from 'react';
 import { ButtonText , ButtonContainer } from './styles';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Animated } from 'react-native';
 
 interface IProps {
   horizontalSize? : string,
@@ -9,7 +9,11 @@ interface IProps {
 }
 
 const CustomButton : FC<IProps> = ({ horizontalSize , text , onPress }) => {
-  return <ButtonContainer horizontalSize={horizontalSize} as={TouchableOpacity} onPress={onPress}>
+  return <ButtonContainer 
+    horizontalSize={horizontalSize} 
+    as={TouchableOpacity} 
+    onPress={onPress}
+  >
     <ButtonText>{text}</ButtonText>
   </ButtonContainer>
 }

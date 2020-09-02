@@ -5,8 +5,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Profile from '../../screens/Profile';
 import DrawerMenu from '../../components/DrawerMenu';
 import StackMap from './StackMap';
-import Nosotros from '../../screens/Nosotros';
-import LectorQR from '../../screens/LectorQR';
+import AboutUs from '../../screens/About-Us';
+import QRLector from '../../screens/QRLector';
 import Chat from '../../screens/Chat';
 
 const Drawer = createDrawerNavigator();
@@ -25,9 +25,9 @@ const RoutesAuth = () => {
     }}
   >
     <Drawer.Screen name='Travels' component={StackMap} />
-    <Drawer.Screen name='LectorQR' component={LectorQR} />
+    <Drawer.Screen name='QRLector' component={QRLector} />
     <Drawer.Screen name='Profile' component={Profile} />
-    <Drawer.Screen name='Nosotros' component={Nosotros} />
+    <Drawer.Screen name='About-Us' component={AboutUs} />
     <Drawer.Screen name='Chat' component={Chat} />
   </Drawer.Navigator>
 }

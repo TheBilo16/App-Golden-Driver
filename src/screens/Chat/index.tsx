@@ -9,10 +9,13 @@ const Chat = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(activateDrawerGesture(false));
+    const blurScreen = navigation.addListener('blur', () => dispatch(activateDrawerGesture(true)));
+    const focusScreen = navigation.addListener('focus',() => dispatch(activateDrawerGesture(false)));
 
-    const eventBlur = navigation.addListener('blur', () => dispatch(activateDrawerGesture(true)));
-    return eventBlur;
+    return () => {
+      blurScreen();
+      focusScreen();
+    }
   },[]);
 
   return <MainLayout title='Chat Administrador' backToScreen={true}>

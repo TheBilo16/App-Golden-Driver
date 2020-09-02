@@ -1,37 +1,33 @@
 import React, { FC } from 'react'
-import { View , Button , StyleSheet } from 'react-native';
+import { View, Button } from 'react-native';
 import { ContentButton } from './style'
 
+
+
 interface buttonRequired {
-    width? : number | string,
-    text : string,
-    onPress() : void,
-    color? : string
+    width?: number | string,
+    text: string,
+    onPress(): void,
+    color?: string
 }
 
 
-const ButtonU : FC<buttonRequired> = ( {width,text,onPress,color} ) => {
+const ButtonU: FC<buttonRequired> = ({ width, text, onPress, color }) => {
 
-    const styles = StyleSheet.create({
-        buttonStyle : {
-            width ,
-        }
-    })
-
-    return(
-        <View style={styles.buttonStyle} >
+    return (
+        <ContentButton width={width}>
             <Button
-                title = {text}
-                onPress = {onPress}
-                color = {color}
-            /> 
-        </View>
+                title={text}
+                onPress={onPress}
+                color={color}
+            />
+        </ContentButton>
     )
 }
 
 ButtonU.defaultProps = {
-    width : "100%",
-    color : "teal",
+    width: "100%",
+    color: "teal",                              
 }
 
 export default ButtonU;

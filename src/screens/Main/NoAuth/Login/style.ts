@@ -1,51 +1,56 @@
 import styled  , { css }  from 'styled-components/native';
 
 
+const widthIconInput : string = "50px";
+
+
 
 const Content = styled.ImageBackground`
-    height:100vh;
-    align-items:center;
-    flex-flow:column nowrap;
+  flex:1;
+`
+
+// Formulario
+
+const FormGroup = styled.View`
+  width:80%;
+  flex:1;
+  alignSelf:center;
 `
 
 const Input = styled.TextInput`
-    width:100%;
-    height:100%;
-    background-color:white;
-    padding:10px;
+  position:absolute;
+  width:100%;
+  backgroundColor:white;
+  height:100%;
+  padding:0 ${widthIconInput};
 `
 
 const ImageInput = styled.View`
-    width:10%;
-    height:100%;
-    justify-content:center;
-    align-items:center;
+  position:absolute;
+  width:${widthIconInput};
+  height:100%;
+  justifyContent:center;
+  alignItems:center;
 `
 
 const InputGroup = styled.View`
-    flex-flow:row nowrap;
-    width:80%;
-    height:40;
-    margin-top:10px;
+  height:50px;
+  flexDirection : row;
+  margin: 8px 0 ;
 `
 
-
-const FormGroup = styled.View`
-    width:100%;
-    height:50%;
-    align-items:center;
-`
+//Logo del Login
 
 const LogoBox = styled.View`
-    width:100%;
-    height:40%;
-    justify-content:center;
-    align-items:center;
+  width:100%;
+  flex:1;
+  justifyContent:center;
+  alignItems:center;
 `
 
 const Logo = styled.Image`
-    width:80%;
-    height:100px;
+  width:80%;
+  height:100px;
 `
 
 export { Content,Input,InputGroup,FormGroup,ImageInput,Logo,LogoBox };

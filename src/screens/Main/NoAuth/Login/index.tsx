@@ -3,9 +3,10 @@ import { Content,Input,InputGroup,FormGroup,ImageInput,Logo , LogoBox} from './s
 import { firestore } from 'firebase'
 import { FontAwesome } from '@expo/vector-icons';
 import { RouteControllerContext } from '../../../../context/RouteController';
+import { AsyncStorage } from 'react-native';
 
 //Source
-const logo = require('./source/fondo.png');
+const logo = require('./source/logo.png');
 const background = require('./source/fondo.png')
 
 
@@ -23,15 +24,14 @@ const Login  = ( { } ) => {
     const changeChoferID = ( e : any ) : void => setChoferID(e.nativeEvent.text)
 
     const ingresar = async () => {
-      // Validar ID del chofer 
-      // Cambiar el estado del TRouteState a 'auth' 
-      
       try {
-        console.log('Ingresando a la app...')
         console.log(choferID);
-        const validation = await fs.collection('driver').where("id","==",choferID).get();
-        validation.size === 1 ? updateRouteState('auth') : console.log('ID incorrecto') 
-  
+        const validation = await (await fs.collection('driver').doc(choferID).get()).exists;
+        if (validation) { 
+          await AsyncStorage.setItem('choferID',choferID)
+          updateRouteState!('auth')
+        } else console.log('ID incorrecto') 
+
       } catch (e) { console.log(e.message) }
     }
 

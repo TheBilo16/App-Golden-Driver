@@ -8,6 +8,7 @@ import RoutesNotAuth from './NotAuth';
 const RouterApp = () => {
   const { routeState } = useContext(RouteControllerContext);
 
+
   return <NavigationContainer>
     { routeState === 'auth' ? <RoutesAuth /> : <RoutesNotAuth /> }
   </NavigationContainer>

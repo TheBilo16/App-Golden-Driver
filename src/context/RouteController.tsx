@@ -1,5 +1,6 @@
-import React, { createContext, FC, useState } from 'react';
+import React, { createContext, FC, useState , useEffect } from 'react';
 import { TRouteState } from '../types';
+import { AsyncStorage } from 'react-native';
 
 //Interface
 interface IContext {
@@ -10,8 +11,19 @@ interface IContext {
 const RouteControllerContext = createContext<Partial<IContext>>({});
 
 const RouteControllerProvider : FC = ({ children }) => {
+
+
   //States
   const [ routeState , setRouteState ] = useState<TRouteState>('no-auth');
+
+  const verifiedStatusChofer = async () => {
+    const status = await AsyncStorage.getItem('choferID');
+    if (status !== null) setRouteState('auth') 
+  }
+
+  useEffect(()=>{
+    verifiedStatusChofer();
+  }, [routeState] )
 
   //Actions
   const updateRouteState = (value : TRouteState) : void => setRouteState(value);

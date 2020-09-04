@@ -3,7 +3,8 @@ import { MapController } from "../../Map/metadata";
 
 namespace TravelController {
   export interface IStore {
-    tasks : ITravel[]
+    tasks : ITravel[],
+    isTasksLoading : boolean
   }
 
   export interface ITravel {

@@ -12,7 +12,7 @@ interface IProps extends TravelController.ITravel {
 
 const Item : FC<IProps> = ({ id, title , date , state , link }) => {
   const navigation = useNavigation();
-  const onPress = ()=> navigation.navigate(link);
+  const onPress = () => navigation.navigate(link,{ id });
 
   //Animation
   const styles = useFadeInAnimation(id);

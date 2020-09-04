@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MapView , { Marker } from 'react-native-maps';
 import { MapTravel } from './styles'
 
@@ -6,21 +6,29 @@ import { MapTravel } from './styles'
 import { useSelector , shallowEqual , useDispatch } from 'react-redux';
 import { changeBusStopInformation } from '../../../../redux/actions/MapActions';
 import { MapController } from '../../../../redux/reducers/Map/metadata';
+import { useRoute } from '@react-navigation/native';
 
 const MainContent = () => {
-  const { 
-    map : { mapScreen : { state } },
-    travels : { tasks }
-  } = useSelector(store => store, shallowEqual);
+  //Hooks
+  const { params } = useRoute();
 
+  //Redux
   const dispatch = useDispatch();
+  const { map , travels } = useSelector(store => store, shallowEqual);
 
+  //Data
+  const { mapScreen : { state } } = map;
+  const { tasks } = travels;
+
+  //Actions
   const ActivateModalBusStopDetail = (busStop : MapController.IBusStopDetail) => {
     if(state === 'bottom-btn') return;
     dispatch(changeBusStopInformation(busStop));
   };
 
-  const GetMarkers = () => tasks.map(v => v.markers);
+  useEffect(() => {
+    
+  },[]);
 
   return (
     <MapTravel
@@ -32,14 +40,16 @@ const MainContent = () => {
         longitudeDelta: 0.0421,
       }}
     >
-    {GetMarkers().map((v,i) => (
-      <Marker 
-        key={i}
-        title={v.title}
-        coordinate={v.coordinate}
-        onPress={() => ActivateModalBusStopDetail(v.information)}
-      />
-    ))}
+    {
+      tasks[params?.id].markers.map((v,i) => (
+        <Marker 
+          key={i}
+          title={v.title}
+          coordinate={v.coordinate}
+          onPress={() => ActivateModalBusStopDetail(v.information)}
+        />
+      ))
+    }
   </MapTravel>
   )
 }

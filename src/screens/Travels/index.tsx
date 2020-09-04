@@ -1,17 +1,24 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, ActivityIndicator } from 'react-native';
+
+//Components
 import MainLayout from '../../components/MainLayout';
 import Item from './Item';
 
-import { useSelector } from 'react-redux';
+//Hooks
+import useTravelsGetData from './hooks/useTravelsGetData';
 
 const Travels = () => {
-  const { tasks } = useSelector(({ travels }) => travels);
+  const { isTasksLoading , travels } = useTravelsGetData();
 
   return <MainLayout title='Viajes' >
-    <ScrollView>
-      { tasks.map((v,i) => <Item key={i} id={i} {...v} />) }
-    </ScrollView>
+    {
+      isTasksLoading ? 
+        <ActivityIndicator color='#2A5AD7' size={58} /> : 
+        <ScrollView>
+          { travels.map((v,i) => <Item key={i} id={i} {...v} />) }
+        </ScrollView>
+    }
   </MainLayout>
 }
 

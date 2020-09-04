@@ -1,16 +1,22 @@
-import React, { useContext } from 'react';
+import React, { } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
+//REDUX
+import { useSelector } from 'react-redux';
+
 import RoutesAuth from './Auth';
-import { RouteControllerContext } from '../context/RouteController';
 import RoutesNotAuth from './NotAuth';
 
 const RouterApp = () => {
-  const { routeState } = useContext(RouteControllerContext);
 
-  return <NavigationContainer>
-    { routeState === 'auth' ? <RoutesAuth /> : <RoutesNotAuth /> }
-  </NavigationContainer>
+  const { routerState } = useSelector(({ router }) => router);
+
+  return (
+    <NavigationContainer>
+      { routerState === 'auth' ? <RoutesAuth /> : <RoutesNotAuth /> }
+    </NavigationContainer>
+  )
 }
+
 
 export default RouterApp;

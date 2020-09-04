@@ -7,6 +7,7 @@ import Item from './Item';
 
 //Hooks
 import useTravelsGetData from './hooks/useTravelsGetData';
+import { ContainerActivityIndicator } from './styles';
 
 const Travels = () => {
   const { isTasksLoading , travels } = useTravelsGetData();
@@ -14,7 +15,9 @@ const Travels = () => {
   return <MainLayout title='Viajes' >
     {
       isTasksLoading ? 
-        <ActivityIndicator color='#2A5AD7' size={58} /> : 
+        <ContainerActivityIndicator>
+          <ActivityIndicator color='#2A5AD7' size={48} /> 
+        </ContainerActivityIndicator> :
         <ScrollView>
           { travels.map((v,i) => <Item key={i} id={i} {...v} />) }
         </ScrollView>

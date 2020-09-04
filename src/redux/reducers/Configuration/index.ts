@@ -3,7 +3,8 @@ import TYPES from "../../actions/ConfigurationActions";
 
 const initialState : ConfigurationController.IStore = {
   isEnabledDrawerGesture : true,
-  isNotificationEnabled : true
+  isNotificationEnabled : true,
+  saveChatImages : false
 }
 
 const reducer = (state = initialState , action) : ConfigurationController.IStore => {

@@ -30,6 +30,7 @@ const SendMessageAreaStyles = {
     align-items: center;
   `,
   ContainerInput : styled.View`
+    flex: 1;
     height: 100%;
   `,
   InputMessage : styled.TextInput`

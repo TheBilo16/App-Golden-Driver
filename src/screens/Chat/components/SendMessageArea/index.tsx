@@ -1,25 +1,29 @@
 import React from 'react';
 import { EvilIcons , MaterialCommunityIcons } from '@expo/vector-icons';
 import SMAS from './styles';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, TouchableHighlight } from 'react-native';
 import useSendMessage from '../../hooks/useSendMessage';
 
 const SendMessageArea = () => {
-  const { sendMessage , changeInputContent } = useSendMessage();
+  const { sendMessage , changeInputContent , inputContent , openCamera } = useSendMessage();
 
   return <SMAS.Container>
     <SMAS.ContainerElements>
       <SMAS.ContainerMessageAction>
         <SMAS.ContainerIcon>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={openCamera} >
             <EvilIcons name="image" size={28} color="black" />
           </TouchableOpacity>
         </SMAS.ContainerIcon>
         <SMAS.ContainerInput>
-          <SMAS.InputMessage onChangeText={changeInputContent} placeholder='Escribe un mensaje...' />
+          <SMAS.InputMessage 
+            defaultValue={inputContent}
+            onChangeText={changeInputContent} 
+            placeholder='Escribe un mensaje...' 
+          />
         </SMAS.ContainerInput>
       </SMAS.ContainerMessageAction>
-      <SMAS.ContainerMessageSend as={TouchableOpacity} onPress={sendMessage}>
+      <SMAS.ContainerMessageSend as={TouchableHighlight} underlayColor='#1D4ABC' onPress={sendMessage}>
         <MaterialCommunityIcons name="send" size={20} color="#fff" />
       </SMAS.ContainerMessageSend>
     </SMAS.ContainerElements>

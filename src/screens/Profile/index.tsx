@@ -3,6 +3,8 @@ import MainLayout from '../../components/MainLayout';
 import UserIdentity from './UserIdentity';
 import UserData from './UserData';
 import { ScrollView } from 'react-native';
+import CustomButton from '../../components/CustomButton';
+import { ButtonContainer } from './styles';
 
 //Config Default 
 const identity = {
@@ -20,7 +22,10 @@ const Profile = () => {
   return <MainLayout title='Perfil de Usuario' >
     <ScrollView>
       <UserIdentity {...identity} />
-      <UserData {...data} />      
+      <UserData {...data} />   
+      <ButtonContainer>
+        <CustomButton horizontalSize='80%' text='Cerrar Sesión' />
+      </ButtonContainer>
     </ScrollView>
   </MainLayout>
 }

@@ -8,7 +8,7 @@ const { width } = Dimensions.get('window');
 const ItemContainer = styled.View`
   flex-direction: row;
   border-bottom-width: 1px;
-  border-bottom-color: #D9D9D9;
+  border-bottom-color: rgb(240,240,240);
   padding: 20px 0;
 `;
 
@@ -23,13 +23,13 @@ const ItemInformation = styled.View`
 `;
 
 const ItemTitle = styled.Text`
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   color: #4A4A4A;
 `;
 
 const ItemSubtitle = styled.Text`
-  font-size: 11px;
+  font-size: 10px;
   color: #A1A1A1;
   margin-top: 3px;
 `;

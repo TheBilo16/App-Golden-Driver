@@ -1,23 +1,23 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC , useEffect } from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import { ItemContainer, ItemInformation, Indicator, ItemCentered, ItemTitle, ItemSubtitle } from './styles';
-import { TouchableOpacity } from 'react-native';
-import { TTravelState } from '../../../types';
+import { TouchableOpacity , Animated } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import TravelController from '../../../redux/reducers/Travel/metadata';
+import useFadeInAnimation from '../hooks/useFadeInAnimation';
 
-interface IProps {
-  title : string,
-  date : string,
-  state : TTravelState,
-  link : string
+interface IProps extends TravelController.ITravel {
+  id : number
 }
 
-const Item : FC<IProps> = ({ title , date , state , link }) => {
-  const onPress = useCallback(()=> {
-    //Change route...
-    console.log(link);
-  },[link]);
+const Item : FC<IProps> = ({ id, title , date , state , link }) => {
+  const navigation = useNavigation();
+  const onPress = ()=> navigation.navigate(link);
 
-  return <ItemContainer>
+  //Animation
+  const styles = useFadeInAnimation(id);
+
+  return <ItemContainer style={styles} as={Animated.View}>
     <ItemCentered>
       <Indicator state={state} />
     </ItemCentered>

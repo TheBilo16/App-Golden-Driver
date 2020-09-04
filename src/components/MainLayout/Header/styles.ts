@@ -1,32 +1,26 @@
-import styled from "styled-components/native";
+import styled , { css } from "styled-components/native";
 
-const HeaderMenu = styled.View`
+interface IProps {
+  isBackToScreen? : boolean
+}
+
+const HeaderMenu = styled.View<IProps>`
   width: 100%;
   height: 60px;
   padding: 0 24px;
   background-color: #fff;
-  border-bottom-width : 1px;
-  border-bottom-color: #C4C4C4;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+
+  ${({ isBackToScreen }) => !isBackToScreen && css`
+    border-bottom-width : 2px;
+    border-bottom-color: rgb(240,240,240);
+    justify-content: space-between;
+  `}
 `;
 
-const ScreenTitle = styled.Text`
-  font-size: 15px;
-`;
-
-const ChatIconContainer = styled.View`
-  width: 34px;
-  height: 34px;
-  border-radius: 17px;
-  background-color: #F8B83E;
-  justify-content: center;
-  align-items: center;
-`;
-
-export {
-  HeaderMenu,
-  ScreenTitle,
-  ChatIconContainer
+HeaderMenu.defaultProps = {
+  isBackToScreen : false
 }
+
+export default HeaderMenu;

@@ -1,7 +1,8 @@
-import { TStateScreenMap, TTravelState, TBusStopState } from "../../../types";
-import { Dispatch } from "react";
+import { LatLng } from "react-native-maps";
+import { TTravelState, TStateScreenMap, TBusStopState } from "../../../../types";
 
-namespace MapContext {
+namespace MapController {
+
   export interface IStore {
     travelState : TTravelState,
     mapScreen : {
@@ -19,18 +20,14 @@ namespace MapContext {
     detailState : TBusStopState;
     date : string;
   }
-  
-  export interface IReducer {
-    type : string,
-    payload : any
-  }
-  
-  export interface IContext {
-    state : IStore,
-    dispatch : Dispatch<IReducer>
+
+  export interface IMarker {
+    title : string,
+    coordinate : LatLng,
+    information : IBusStopDetail,
   }
 }
 
 export {
-  MapContext
+  MapController
 }

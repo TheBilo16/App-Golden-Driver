@@ -1,19 +1,30 @@
-import { MapContext } from "../namespaces"
+import { MapController } from "./metadata";
+import TYPES from "../../actions/MapActions";
 
-const TYPES = {
-  CHANGE_MAP_STATE_TYPE : 'change-map-state-type',
-  CHANGE_BUSSTOP_INFORMATION : 'change-busstop-information',
-  CHANGE_BUSSTOP_MODAL_CLOSE : 'change-busstop-modal-close',
-  CHANGE_TRAVEL_STATE : 'change-travel-state',
+const initialState : MapController.IStore = {
+  travelState : 'pendient',
+  mapScreen : {
+    state : 'bottom-btn',
+    modal : {
+      busStopDetail : {
+        name : '',
+        ubication : '',
+        date : '',
+        detailState : 'in-process',
+      },
+      isActive : false
+    }
+  }
 }
 
-const reducer = (state : MapContext.IStore, action : MapContext.IReducer) : MapContext.IStore => {
+const reducer = (state = initialState , action) : MapController.IStore => {
   switch(action.type){
     case TYPES.CHANGE_TRAVEL_STATE:
       return {
         ...state,
         travelState : action.payload
       }
+
     case TYPES.CHANGE_MAP_STATE_TYPE:
       return {
         ...state,
@@ -22,6 +33,7 @@ const reducer = (state : MapContext.IStore, action : MapContext.IReducer) : MapC
           state : action.payload
         }
       }
+
     case TYPES.CHANGE_BUSSTOP_INFORMATION:
       return {
         ...state,
@@ -33,6 +45,7 @@ const reducer = (state : MapContext.IStore, action : MapContext.IReducer) : MapC
           }
         }
       }
+      
     case TYPES.CHANGE_BUSSTOP_MODAL_CLOSE:
       return {
         ...state,
@@ -45,12 +58,14 @@ const reducer = (state : MapContext.IStore, action : MapContext.IReducer) : MapC
         }
       }
 
+    case TYPES.CHANGE_GLOBAL_STATE:
+      return {
+        ...initialState
+      }
+
     default:
       return state;
   }
 }
 
-export {
-  TYPES,
-  reducer
-}
+export default reducer;

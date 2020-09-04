@@ -26,7 +26,7 @@ const InputSectionContainer = styled.View`
   padding: 0 5px;
   padding-top: 10px;
   border-bottom-width: 1px;
-  border-bottom-color: #A1A1A1;
+  border-bottom-color: rgb(230,230,230);
 `;
 
 const InputLabel = styled.TextInput`

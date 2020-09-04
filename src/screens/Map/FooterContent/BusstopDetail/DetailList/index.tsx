@@ -1,17 +1,25 @@
-import React, { FC, memo, useContext } from 'react';
-import { CentralContent } from './styles';
+import React, { FC } from 'react';
 import { Entypo , MaterialIcons , Ionicons } from '@expo/vector-icons';
 import Item from './Item';
 import { ScrollView } from 'react-native';
-import { MapControllerContext } from '../../../../../context/MapController';
+
+//Redux
+import { useSelector , shallowEqual } from 'react-redux';
+import { CentralContent } from './styles';
 
 interface IProps {
   isActive : boolean
 }
 
 const DetailList : FC<IProps> = ({ isActive }) => {
-  const { state } = useContext(MapControllerContext);
-  const { date , ubication } = state?.mapScreen.modal.busStopDetail!;
+  //Redux
+  const { mapScreen : { modal } } = useSelector(({ map }) => map, shallowEqual);
+  const { 
+    busStopDetail : {
+      date,
+      ubication
+    }
+  } = modal;
 
   const OptionsList = [
     {
@@ -37,18 +45,20 @@ const DetailList : FC<IProps> = ({ isActive }) => {
   if(!isActive) return <></>;
 
   return <CentralContent as={ScrollView}>
-    { 
-      OptionsList.map((v,i) =>
-        <Item 
-          key={i}  
-          title={v.title}
-          description={v.description}
-          icon={v.icon}
-          isNavigator={v.isNavigator}
-        />
-      )
-    }
+    <ScrollView>
+      { 
+        OptionsList.map((v,i) =>
+          <Item 
+            key={i}  
+            title={v.title}
+            description={v.description}
+            icon={v.icon}
+            isNavigator={v.isNavigator}
+          />
+        )
+      }      
+    </ScrollView>
   </CentralContent>
 }
 
-export default memo(DetailList);
+export default DetailList;

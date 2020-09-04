@@ -1,6 +1,7 @@
 namespace NSChat {
   interface IPropsMessage {
-    
+    content : string;
+    isChofer? : boolean;
   }
 
   export interface IPropsMessageBasic extends IPropsMessage {

@@ -8,7 +8,7 @@ import { ButtonContainer } from './styles';
 
 //Config Default 
 const identity = {
-  uri : 'https://pymstatic.com/44247/conversions/arturo-torres-medium.jpg',
+  uri : 'https://media.metrolatam.com/2020/07/26/screenshot202007-01d2155de1de50e0c683eb3bf3d9ef86-1200x800.jpg',
   username : 'Billy Alexander Paredes Aycho'
 }
 

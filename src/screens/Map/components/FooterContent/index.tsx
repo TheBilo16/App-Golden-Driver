@@ -7,7 +7,6 @@ import { useSelector , shallowEqual } from 'react-redux';
 
 const FooterContent = () => {
   const { mapScreen : { state } } = useSelector(({ map }) => map, shallowEqual);
-
   let NowScreen : JSX.Element = <></>;
 
   switch(state){

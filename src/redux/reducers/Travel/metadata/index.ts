@@ -1,4 +1,5 @@
 import { TTravelState } from "../../../../types";
+import { MapController } from "../../Map/metadata";
 
 namespace TravelController {
   export interface IStore {
@@ -6,10 +7,11 @@ namespace TravelController {
   }
 
   export interface ITravel {
-    title : string,
-    date : string,
-    link : string,
-    state : TTravelState
+    title : string;
+    date : string;
+    link : string;
+    state : TTravelState;
+    markers : MapController.IMarker[]
   }
 }
 

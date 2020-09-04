@@ -1,4 +1,4 @@
-import styled , { css } from "styled-components/native";
+import styled from "styled-components/native";
 
 interface IProps {
   horizontalSize : string
@@ -14,6 +14,12 @@ const ButtonContainer = styled.View<IProps>`
   align-items: center;
   justify-content: center;
   border-radius: 23px;
+  flex-direction: row;
+`;
+
+const IconContainer = styled.View`
+  margin-right: 10px;
+  line-height: 0;
 `;
 
 const ButtonText = styled.Text`
@@ -24,5 +30,6 @@ const ButtonText = styled.Text`
 
 export {
   ButtonContainer,
-  ButtonText
+  ButtonText,
+  IconContainer
 }

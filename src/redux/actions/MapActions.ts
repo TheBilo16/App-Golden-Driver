@@ -1,11 +1,13 @@
 import { TTravelState, TStateScreenMap } from "../../types";
+import Travels from "../../screens/Travels";
 
 const TYPES = {
   CHANGE_MAP_STATE_TYPE : 'change-map-state-type',
   CHANGE_BUSSTOP_INFORMATION : 'change-busstop-information',
   CHANGE_BUSSTOP_MODAL_CLOSE : 'change-busstop-modal-close',
   CHANGE_TRAVEL_STATE : 'change-travel-state',
-  CHANGE_GLOBAL_STATE : 'change-global-state'
+  CHANGE_GLOBAL_STATE : 'change-global-state',
+  CHANGE_ALERTBOX_QUESTION : 'change-alertbox-question'
 }
 
 const changeBusStopInformation = (busStop) => ({
@@ -27,11 +29,17 @@ const setInitialState = () => ({
   type : TYPES.CHANGE_GLOBAL_STATE
 })
 
+const changeAlertBoxState = (state : boolean) => ({
+  type : TYPES.CHANGE_ALERTBOX_QUESTION,
+  payload : state
+})
+
 export {
   changeBusStopInformation,
   changeTravelState,
   changeMapState,
-  setInitialState
+  setInitialState,
+  changeAlertBoxState
 }
 
 export default TYPES;

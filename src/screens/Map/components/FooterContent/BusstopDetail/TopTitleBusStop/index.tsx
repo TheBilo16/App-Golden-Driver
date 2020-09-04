@@ -1,8 +1,8 @@
 import React, { FC, useCallback } from 'react';
 import { TopTitleContainer , TitleBusStop, WarningMessage } from './styles';
-import ItemList from '../../../../../components/ItemList';
+import ItemList from '../../../../../../components/ItemList';
 import IconCircle from './IconCircle';
-import { TBusStopState } from '../../../../../types';
+import { TBusStopState } from '../../../../../../types';
 
 interface IProps {
   title : string;

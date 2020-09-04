@@ -1,4 +1,5 @@
 import styled , { css } from "styled-components/native";
+import { headerMenuMeasure } from "../../../styles";
 
 interface IProps {
   isBackToScreen? : boolean
@@ -6,16 +7,17 @@ interface IProps {
 
 const HeaderMenu = styled.View<IProps>`
   width: 100%;
-  height: 60px;
-  padding: 0 24px;
+  height: ${headerMenuMeasure.height}px;
+  padding: 0 18px;
   background-color: #fff;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 
   ${({ isBackToScreen }) => !isBackToScreen && css`
     border-bottom-width : 2px;
     border-bottom-color: rgb(240,240,240);
-    justify-content: space-between;
+    padding: 0 24px;
   `}
 `;
 

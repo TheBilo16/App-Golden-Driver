@@ -10,7 +10,8 @@ namespace MapController {
       modal : {
         busStopDetail : IBusStopDetail;
         isActive : boolean;
-      }
+      };
+      alertQuestionActive : boolean
     }
   }
 

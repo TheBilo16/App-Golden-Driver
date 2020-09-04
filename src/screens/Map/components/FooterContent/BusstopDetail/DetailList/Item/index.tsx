@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ContainerItemList , DescriptionArea , TitleArea } from './styles';
-import ItemList from '../../../../../../components/ItemList';
+import ItemList from '../../../../../../../components/ItemList';
 
 interface IProps {
   title : string;

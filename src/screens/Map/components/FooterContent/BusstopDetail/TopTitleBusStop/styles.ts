@@ -1,5 +1,5 @@
 import styled , { css } from "styled-components/native";
-import { TBusStopState } from "../../../../../types";
+import { TBusStopState } from "../../../../../../types";
 
 const TopTitleContainer = styled.View`
   width: 100%;

@@ -1,9 +1,10 @@
 import styled from 'styled-components/native';
+import { headerMenuMeasure } from '../../styles';
 
 const MainContainer = styled.View`
   flex: 1;
   background-color: #fff;
-  margin-top: 24px;
+  margin-top: ${headerMenuMeasure.paddingTop}px;
 `;
 
 const Content = styled.View`

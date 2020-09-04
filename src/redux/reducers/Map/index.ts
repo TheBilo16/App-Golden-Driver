@@ -13,7 +13,8 @@ const initialState : MapController.IStore = {
         detailState : 'in-process',
       },
       isActive : false
-    }
+    },
+    alertQuestionActive : false
   }
 }
 
@@ -61,6 +62,15 @@ const reducer = (state = initialState , action) : MapController.IStore => {
     case TYPES.CHANGE_GLOBAL_STATE:
       return {
         ...initialState
+      }
+
+    case TYPES.CHANGE_ALERTBOX_QUESTION:
+      return {
+        ...state,
+        mapScreen : {
+          ...state.mapScreen,
+          alertQuestionActive : action.payload
+        }
       }
 
     default:

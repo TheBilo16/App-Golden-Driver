@@ -11,7 +11,7 @@ const RouteControllerContext = createContext<Partial<IContext>>({});
 
 const RouteControllerProvider : FC = ({ children }) => {
   //States
-  const [ routeState , setRouteState ] = useState<TRouteState>('no-auth');
+  const [ routeState , setRouteState ] = useState<TRouteState>('auth');
 
   //Actions
   const updateRouteState = (value : TRouteState) : void => setRouteState(value);

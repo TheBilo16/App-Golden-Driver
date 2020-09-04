@@ -25,7 +25,6 @@ const BusstopDetail = () => {
   //Ver mas informacion
   const ToggleMoreInformation = () => setMoreInformation(() => !moreInformation);
   
-
   return <BusstopModalContainer>
     <TopTitleBusStop title={name} busStopState={detailState} />
     <DetailList isActive={moreInformation} />

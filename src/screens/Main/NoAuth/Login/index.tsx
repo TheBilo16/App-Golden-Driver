@@ -3,19 +3,22 @@ import { Content,Input,InputGroup,FormGroup,ImageInput,Logo , LogoBox} from '../
 import { firestore } from 'firebase'
 import { FontAwesome } from '@expo/vector-icons';
 import { AsyncStorage } from 'react-native';
-import { connect } from 'react-redux';
 
-import { TRouteState } from '../../../../types';
 //Source
 const logo = require('../source/logo.png');
 const background = require('../source/fondo.png')
 
+//REDUX
+import { useDispatch } from 'react-redux';
+import { updateRouteState } from '../../../../redux/actions/RouterActions';
+import { updateDataChofer } from '../../../../redux/actions/AccountActions';
 
 //UIComponents
 import ButtonU from '../../../../UIComponents/Button';
 
-const Login  = ( { updateRouteState } ) => {
+const Login  = ( ) => {
 
+    const dispatch = useDispatch()
     const fs = firestore();
     const [ choferID , setChoferID] = useState('');
 
@@ -24,9 +27,8 @@ const Login  = ( { updateRouteState } ) => {
     const getInformationChofer = async (choferID) => {
       const information = await fs.collection('driver').doc(choferID).get();
       
-      return {
-        //resto de informacion del chofer
-      }
+      console.log(information.data)
+
     }
 
     const ingresar = async () => {
@@ -34,15 +36,27 @@ const Login  = ( { updateRouteState } ) => {
         const validation = await (await fs.collection('driver').doc(choferID).get()).exists;
         if (validation) { 
           const {  } = getInformationChofer(choferID)
-          
-          //Almacenar informacion del chofer en la chache.
+
+          const dataChofer = {
+            id : choferID,
+            name : '',
+            lastName:'',
+            timeLogin:'',
+          }
+
           await AsyncStorage.multiSet([
             ['choferID',choferID],
-            //resto de informacion de 
+            ['dataChofer',JSON.stringify(dataChofer)]
           ])
-          //agregar en el account context
-          updateRouteState('auth');
-              
+          dispatch(updateRouteState('auth'));
+      
+          dispatch(updateDataChofer({
+              timeLogin : new Date(),
+              choferID : '',
+              lastName : '',
+              name : ''
+          }))
+
         } else console.log('ID incorrecto') 
 
       } catch (e) { console.log(e.message) }
@@ -76,17 +90,4 @@ const Login  = ( { updateRouteState } ) => {
     )
 }
 
-const mapToStateProps = state => ({
-
-})
-
-const mapDispatchToProps = dispatch => ({
-  updateRouteState( routeState : TRouteState ){
-    dispatch({
-      type : 'update-route-state',
-      payload :  routeState
-    })
-  }
-})
-
-export default connect(mapToStateProps,mapDispatchToProps)(Login)
+export default Login;

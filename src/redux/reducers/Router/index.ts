@@ -1,6 +1,8 @@
 import RouterController from './metadata';
 import TYPES from '../../actions/RouterActions';
 
+
+
 const initialState : RouterController.IRouter = {
   routerState : 'no-auth',
 }

@@ -1,26 +1,27 @@
-import React , {useState,useEffect} from 'react';
+//React - React-Native
+import React , {} from 'react';
+import { AsyncStorage } from 'react-native';
+
 
 import Login from './Login/';
-import ValidationLogin from './ValidationLogin';
+import CheckLogin from './CheckLogin';
 
-import { AsyncStorage } from 'react-native';
+
+
 
 
 const NoAuth = () => {
 
-  const [ existAuth , setExistAuth ] = useState(false);
-
-  const comprobar = async() => {
-    const validationAuth = await AsyncStorage.getItem('choferID');
-    if ( validationAuth !== null ) setExistAuth(true)
+  const checkDataChofer = async() => {
+    const data = await AsyncStorage.getItem('dataChofer');
+    console.log(data);
+    if ( data !== null ) return true
+    else return false
   }
 
-  useEffect(()=>{
-    comprobar()
-  },[existAuth])
 
   return (
-    existAuth  ? <ValidationLogin /> : <Login />
+    checkDataChofer() ? <Login /> : <CheckLogin />  
   )
 }
 

@@ -1,23 +1,23 @@
 import AccountController from './metadata';
 import TYPES from '../../actions/AccountActions';
-import { AsyncStorage } from 'react-native';
 
 const initialState : AccountController.IAccount = {
-  business : '',
-  creationDate : new Date(),
-  dateOfBirth : new Date(),
-  direction : '',
-  documentImage : '',
+  timeLogin : new Date(),
+  choferID : '',
   lastName : '',
   name : ''
 }
 
-const reducer = (state = initialState,action) : AccountController.IAccount {
+const reducer = (state = initialState,action) : AccountController.IAccount => {
   switch(action.type){
-    case TYPES.UPDATE_BUSINESS : return ({
-      ...state,
-      business : action.payload
+    case TYPES.UPDATE_DATA : return ({
+      timeLogin : action.payload.timeLogin,
+      choferID : action.payload.choferID,
+      lastName : action.payload.lastName,
+      name : action.payload.name
     })
     default : return state
   }
 }
+
+export default reducer;

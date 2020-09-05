@@ -1,4 +1,5 @@
 import React , {  } from 'react';
+import { AsyncStorage } from 'react-native';
 
 //UIComponents
 import { Content,FormGroup , LogoBox , Logo } from '../styles/style';
@@ -12,18 +13,32 @@ const background = require('../source/fondo.png')
 import { useDispatch } from 'react-redux';
 import { updateRouteState } from '../../../../redux/actions/RouterActions';
 
-const LoginVerified = ( { } ) => {
+const CheckLogin = ( { } ) => {
 
   const dispatch = useDispatch();
 
   //Aqui va el componente de redireccionamiento.
-  const continueSession = () => {
-    console.log('Redireccionando a la app');
-    dispatch(updateRouteState('auth'))
+  const continueSession = async () => {
+    try {
+
+      let d = await AsyncStorage.getItem('dataChofer');
+      let data = JSON.parse(d!);
+      await AsyncStorage.setItem('choferID',data.id);
+      dispatch( updateRouteState('auth') )
+      console.log('Continuando la session anterior - ID reestablecida');
+
+    }catch(e) { console.log(e.message) }
+    
   }
 
-  const removeSession = () => {
+  const removeSession = async () => {
+    try {
+      await AsyncStorage.clear();
+      dispatch(updateRouteState('no-auth'));
+      console.log('session actual eliminada')
+    } catch(e) { console.log(e.message) }
     
+
   }
 
   return (
@@ -50,4 +65,4 @@ const LoginVerified = ( { } ) => {
 }
 
 
-export default LoginVerified;
+export default CheckLogin;

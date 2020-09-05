@@ -1,10 +1,7 @@
 namespace AccountController {
   export interface IAccount {
-    business : string,
-    creationDate : Date,
-    dateOfBirth : Date,
-    direction : string,
-    documentImage : string,
+    timeLogin : Date,
+    choferID : string,
     lastName : string,
     name:string
   }
